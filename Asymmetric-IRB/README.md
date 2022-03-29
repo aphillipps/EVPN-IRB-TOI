@@ -64,7 +64,7 @@ From now on you can either:
 - Access the device via the GUI by hovering over the diagram and clicking on the devices
 
 ![SSH to Devices (l3evpn)](step6.jpg)
-### Remove VRF Mapping
+### Remove VRF mapping
 
 This lab has been initially been set up for L3 EVPN.
 Some changes need to be made in the configuration before starting the lab.
@@ -88,7 +88,7 @@ On Leaf3:
 
 (*) Hint: Look at the Spine Switches configuration and use LLDP
 ## Asymmetric IRB Lab
-### Configure vlan 112
+### Configure VLAN 112
 
 On Leaf1 and Leaf3
 - Configure vlan 112 
@@ -146,12 +146,12 @@ Use the following commands on the Leaf Switches and explore the outputs
 
 ### Identify VNI used for encapsulation
 
-- Configure tcpdump on interfaces to Spine Switches
+- Run tcpdump on interfaces to Spine Switches
 - Generate traffic betweens hosts across Leaf Switches
 - Analyse tcpdump outputs and check the VNIs used each way
 
 Note the following important points:
 - When generating inter-vlan traffic, VNI numbers change according to the direction of the flow, thus the word asymmetric
 - Asymmetric does not necessarly mean without VRFS, but without mapping from VRF to VNI on the VXLAN interface
-- Every VLAN needs to be presnt on every Leaf Swicth even if there is no host present on the Leaf Switch
+- Every VLAN needs to be present on every Leaf Swicth even if there is no host present on the Leaf Switch
 - Note that you can also generate intra-vlan traffic inside VLAN 112, thus the term IRB: Integrated Routing and Switching
