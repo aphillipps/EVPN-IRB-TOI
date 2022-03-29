@@ -1,7 +1,9 @@
 # ATD LAB 6 (type l3evpn)
 
-# Goals: Understand Assymmetric IRB
+# Goals
 
+Understand Assymmetric IRB
+Configure Assymmetric IRB
 # Tasks
 
 ## Summary
@@ -12,10 +14,10 @@
 
 ## Detailed Tasks
 - Launch lab 6 from the Arista Test Drive
-- Configure vlan 112 with vni 1112 and an anycast SVI on Leaf 1 and 3
-- Configure Leaf 2 to be a host in vlan 112 connected to Leaf 1
-- Configure Leaf 4 to be a host in vlan 112 connected to Leaf 3
-- Configure a static route on Host 1 and Host 2 for the subnet of vlan 112
+- Configure vlan 112 with vni 1112 and an anycast SVI on Leaf1 and3
+- Configure Leaf2 to be a host in vlan 112 connected to Leaf1
+- Configure Leaf4 to be a host in vlan 112 connected to Leaf3
+- Configure a static route on Host1 and Host2 for the subnet of vlan 112
 - Test reachability between all hosts
 - Check BGP EVPN route-types and routing table
 - Do some tcpdumps to see the VNIs used in each case
