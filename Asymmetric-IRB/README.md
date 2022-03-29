@@ -2,15 +2,15 @@
 
 # Goals
 
-- Understand Assymmetric IRB
-- Configure Assymmetric IRB
+- Understand Asymmetric IRB
+- Configure Asymmetric IRB
 # Tasks
 
 ## Summary
 - Configure the Overlay using VXLAN with EVPN on Leaf3
-- Establish Connectivity Between Host 1 and Host 2 in VRF vrf1
+- Establish Connectivity Between Host1, Host2, Host11 and Host22 in VRF vrf1
 - Identify VNIs used for encapsulation
-- Identify Route Types used in a assymmetric EVPN IRB setup
+- Identify Route Types used in a asymmetric EVPN IRB setup
 
 ## Detailed Tasks
 - Launch lab 6 from the Arista Test Drive
@@ -33,7 +33,9 @@ Note that the lab will run for a certain amount of time depending on the setup. 
 
 ![ATD Main Page](step1.jpg)
 
-Click on Console Access, the second link on the left hand side
+- Click on Console Access, the second link on the left hand side.
+
+The passwords are listed at the bottom of the page and are different in each lab environment.
 
 ![Arista Datacenter Lab](step2.jpg)
 
@@ -41,11 +43,14 @@ This is the jump host to access all the nodes of the lab and launch the script t
 
 ![Jump Host for Arista Test Drive](step3.jpg)
 
-Type 6 and enter. Wait until the script has finished running. This script configured Leaf and Spine switches for the lab except Leaf 3 that you will need to configure
+- Type 6 and enter
+- Wait until the script has finished running
+
+This script configures Leaf and Spine switches for the lab (except Leaf3 that you will need to configure).
 
 ![Launch EVPN Type 5 Lab (l3evpn)](step4.jpg)
 
-Once the script has configured all the devices, you will see as above the following line:
+Once the script has configured all the devices, you will see the following line:
 Lab Setup Completed. Please press Enter to continue...
 
 ![Setup Completed (l3evpn)](step5.jpg)
@@ -55,13 +60,21 @@ From now on you can either:
 - Access the device via the GUI by hovering over the diagram and clicking on the devices
 
 ![SSH to Devices (l3evpn)](step6.jpg)
+### Remove VRF Mapping
+
+This lab has been initially been stup for L3 EVPN.
+Some changes need to be made in the configuration before starting the lab.
+
+On Leaf1 and Leaf3
+- Remove the VRF vrf1 to VNI mapping on the VXLAN interface
+- Remove the VRF vrf1 in the bgp configuration
 
 ### Configure vlan 112
 
 On Leaf1 and Leaf3
 - Configure vlan 112 
 - Configure a MAC VRF for this vlan
-- Configure the mapping VLAN to VNI on the VXLAN interface using vni 1112
+- Configure VLAN to VNI mapping on the VXLAN interface using vni 1112 for vlan 112
 - Configure SVI with the anycast IP address 172.16.112.1/24 in vrf1
 
 ### Turn Leaf2 into Host11
@@ -74,8 +87,8 @@ On Leaf2
 - Add static routes to vlan 2001 and vlan 2003
 
 On Leaf1
-- Configure interface Ethernet1 as an access port
-in vlan 112
+- Configure interface Ethernet1 as an access port in vlan 112
+- Unshut interface Ethernet1
 
 ### Turn Leaf4 into Host22
 
@@ -87,27 +100,39 @@ On Leaf4
 - Add static routes to vlan 2001 and vlan 2003
 
 On Leaf3
-- Configure interface Ethernet1 as an access port
-in vlan 112
+- Configure interface Ethernet1 as an access port in vlan 112
 
-### Configure a static route on Host1 and Host2 for the subnet of vlan 112
+### Configure a static route on Host1 and Host2
 
 On Host1 and Host2
-Configure a static route to vlan 112
+- Configure a static route to vlan 112
 
 ### Test reachability between all hosts
 
-Ping from host1 to host11 and host22 for example
+From host1 ping
+- Host2
+- Host11
+- Host22
 
 ### Check BGP EVPN route-types and routing table
 
-Use the following commands on the Leaf Switches
+Use the following commands on the Leaf Switches and explore the outputs
 - show bgp evpn summmary
 - show bgp evpn
 - show bgp evpn vni xx
+- show bgp evpn route-type imet
+- show bgp evpn route-type mac-ip
 - show bgp evpn route-type ip-prefix ipv4
 - show bgp evpn route-type ip-prefix x.x.x.x/y
 
 ### Identify VNI used for encapsulation
 
-Do some tcpdumps to see the VNIs used in each case
+- Configure tcpdump on interfaces to Spine Switches
+- Generate traffic betweens hosts across Leaf Switches
+- Analyse tcpdump outputs and check the VNIs used each way
+
+Note the following important points:
+- When generating inter-vlan traffic, VNI numbers change according to the direction of the flow, thus the word asymmetric
+- Asymmetric does not necessarly mean without VRFS, but without mapping from VRF to VNI on the VXLAN interface
+- Every VLAN needs to be presnt on every Leaf Swicth even if there is no host present on the Leaf Switch
+- Note that you can also generate intra-vlan traffic inside VLAN 112, thus the term IRB: Integrated Routing and Switching
