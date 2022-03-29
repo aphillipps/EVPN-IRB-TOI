@@ -7,23 +7,27 @@
 # Tasks
 
 ## Summary
-- Configure the Overlay using VXLAN with EVPN on Leaf3
+- Configure EVPN VXLAN on Leaf3
 - Establish Connectivity Between Host1, Host2, Host11 and Host22 in VRF vrf1
 - Identify VNIs used for encapsulation
 - Identify Route Types used in a asymmetric EVPN IRB setup
 
 ## Detailed Tasks
 - Launch lab 6 from the Arista Test Drive
+- Remove vrf1 on Leaf1
+- Configure EVPN VXLAN on Leaf3
 - Configure vlan 112 with vni 1112 and an anycast SVI on Leaf1 and3
-- Configure Leaf2 to be a host in vlan 112 connected to Leaf1
-- Configure Leaf4 to be a host in vlan 112 connected to Leaf3
-- Configure a static route on Host1 and Host2 for the subnet of vlan 112
+- Configure Host11 (Leaf2) to be a host in vlan 112 connected to Leaf1
+- Configure Host 22 (Leaf4) to be a host in vlan 112 connected to Leaf3
+- Configure static routes on Host11 and Host22
+- Configure a static route on Host1 and Host2
 - Test reachability between all hosts
 - Check BGP EVPN route-types and routing table
-- Do some tcpdumps to see the VNIs used in each case
+- Do some tcpdumps to check the VNIs used in each case
 
 ![Lab Diagram](lab-diagram.jpg)
 
+## Lab Preparation
 ### Launch ATD LAB 6
 
 - Click on the ATD URL provided by Arista. A new page will open.
@@ -62,13 +66,28 @@ From now on you can either:
 ![SSH to Devices (l3evpn)](step6.jpg)
 ### Remove VRF Mapping
 
-This lab has been initially been stup for L3 EVPN.
+This lab has been initially been set up for L3 EVPN.
 Some changes need to be made in the configuration before starting the lab.
 
-On Leaf1 and Leaf3
+On Leaf1
 - Remove the VRF vrf1 to VNI mapping on the VXLAN interface
 - Remove the VRF vrf1 in the bgp configuration
 
+### Configure EVPN VXLAN on Leaf3
+
+On Leaf3:
+- Configure Loopback0 using 172.16.0.5/32
+- Configure Loopback1 using 3.3.3.3/32
+- Configure vlan 2001 and vlan 2003
+- Configure P2P interfaces to Spine Switches (*)
+- Configure BGP peering to Spine Switches for the Underlay
+- Check BGP peers
+- Configure BGP peering to Spine Switches for the Overlay
+- Check EVPN BGP peers
+- Configure a VRF instance named vrf1 and enable routing for it
+
+(*) Hint: Look at the Spine Switches configuration and use LLDP
+## Asymmetric IRB Lab
 ### Configure vlan 112
 
 On Leaf1 and Leaf3
