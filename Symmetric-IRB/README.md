@@ -15,7 +15,7 @@
 ## Detailed Tasks
 - Launch lab 6 from the Arista Test Drive
 - Configure EVPN VXLAN on Leaf3
-- Configure vlan 112 with vni 1112 and an anycast SVI on Leaf1 and3
+- Configure vlan 112 with vni 1112 and an anycast SVI on Leaf1 and Leaf3
 - Configure Host11 (Leaf2) to be a host in vlan 112 connected to Leaf1
 - Configure Host 22 (Leaf4) to be a host in vlan 112 connected to Leaf3
 - Configure static routes on Host11 and Host22
@@ -69,7 +69,7 @@ From now on you can either:
 On Leaf3:
 - Configure Loopback0 using 172.16.0.5/32
 - Configure Loopback1 using 3.3.3.3/32
-- Configure vlan 2001 and vlan 2003
+- Configure vlan 2003
 - Configure P2P interfaces to Spine Switches (*)
 - Configure BGP peering to Spine Switches for the Underlay
 - Check BGP peers

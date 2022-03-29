@@ -16,7 +16,7 @@
 - Launch lab 6 from the Arista Test Drive
 - Remove vrf1 on Leaf1
 - Configure EVPN VXLAN on Leaf3
-- Configure vlan 112 with vni 1112 and an anycast SVI on Leaf1 and3
+- Configure vlan 112 with vni 1112 and an anycast SVI on Leaf1 and Leaf3
 - Configure Host11 (Leaf2) to be a host in vlan 112 connected to Leaf1
 - Configure Host 22 (Leaf4) to be a host in vlan 112 connected to Leaf3
 - Configure static routes on Host11 and Host22
