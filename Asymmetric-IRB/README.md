@@ -37,11 +37,15 @@ Note that the lab will run for a certain amount of time depending on the setup. 
 
 ![ATD Main Page](step1.jpg)
 
+
+
 - Click on Console Access, the second link on the left hand side.
 
 The passwords are listed at the bottom of the page and are different in each lab environment.
 
 ![Arista Datacenter Lab](step2.jpg)
+
+
 
 This is the jump host to access all the nodes of the lab and launch the script that will preset your labs.
 
@@ -64,7 +68,7 @@ From now on you can either:
 - Access the device via the GUI by hovering over the diagram and clicking on the devices
 
 ![SSH to Devices (l3evpn)](step6.jpg)
-### Remove VRF mapping
+### Remove VRF Mapping
 
 This lab has been initially been set up for L3 EVPN.
 Some changes need to be made in the configuration before starting the lab.
@@ -121,19 +125,19 @@ On Leaf4
 On Leaf3
 - Configure interface Ethernet1 as an access port in vlan 112
 
-### Configure a static route on Host1 and Host2
+### Configure a Static Route on Host1 and Host2
 
 On Host1 and Host2
 - Configure a static route to vlan 112
 
-### Test reachability between all hosts
+### Test Reachability between Hosts
 
 From host1 ping
 - Host2
 - Host11
 - Host22
 
-### Check BGP EVPN route-types and routing table
+### Check BGP EVPN Route-types and Routing Tables
 
 Use the following commands on the Leaf Switches and explore the outputs
 - show bgp evpn summmary
@@ -144,7 +148,7 @@ Use the following commands on the Leaf Switches and explore the outputs
 - show bgp evpn route-type ip-prefix ipv4
 - show bgp evpn route-type ip-prefix x.x.x.x/y
 
-### Identify VNI used for encapsulation
+### Identify VNIs used for Encapsulation
 
 - Run tcpdump on interfaces to Spine Switches
 - Generate traffic betweens hosts across Leaf Switches
