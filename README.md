@@ -1,0 +1,23 @@
+Labs for Arista ATD
+-------------------
+
+These labs have been built for the setup used in Arista Test Drive composed of the following devices:
+- 2 Spine Switches
+    - Spine1
+    - Spine2
+- 4 Leaf Switches
+    - Leaf1
+    - Leaf2
+    - Leaf3
+    - Leaf4
+- 2 Hosts
+    - Host1
+    - Host2
+
+![Lab Diagram](diagram.jpg)
+
+These labs focus on EVPN IRB configuration and concepts.
+
+There are the following labs:
+- [Asymmetric IRB](2-Asymmetric#32;IRB)
+- [Symmetric IRB](1-Symmetric#32;IRB)
