@@ -33,7 +33,8 @@ Lab Setup Completed. Please press Enter to continue...
 
 ![Setup Completed (l3evpn)](step5.jpg)
 
-From now on you can either:
+From now on you can either
+
 - Type 98 and SSH via the jump host to the devices that you want to configure
 - Access the device via the GUI by hovering over the diagram and clicking on the devices
 

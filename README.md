@@ -1,7 +1,8 @@
-Labs for Arista ATD
--------------------
+# Labs for Arista ATD
+
 
 These labs have been built for the setup used in Arista Test Drive composed of the following devices:
+
 - 2 Spine Switches
     - Spine1
     - Spine2
@@ -19,5 +20,6 @@ These labs have been built for the setup used in Arista Test Drive composed of t
 These labs focus on EVPN IRB configurations and concepts.
 
 There are the following labs:
+
 - [Asymmetric IRB](Asymmetric-IRB)
 - [Symmetric IRB](Symmetric-IRB)
