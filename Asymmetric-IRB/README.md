@@ -82,7 +82,6 @@ On Leaf1
 On Leaf3:
 - Configure Loopback0 using 172.16.0.5/32
 - Configure Loopback1 using 3.3.3.3/32
-- Configure vlan 2001 and vlan 2003
 - Configure P2P interfaces to Spine Switches (*)
 - Configure BGP peering to Spine Switches for the Underlay
 - Check BGP peers
@@ -95,10 +94,19 @@ On Leaf3:
 ### Configure VLAN 112
 
 On Leaf1 and Leaf3
-- Configure vlan 112 
+- Configure VLAN 112 
 - Configure a MAC VRF for this vlan
 - Configure VLAN to VNI mapping on the VXLAN interface using vni 1112 for vlan 112
 - Configure SVI with the anycast IP address 172.16.112.1/24 in vrf1
+
+### Configure VLANs 2001 and 2003
+
+On Leaf1 and Leaf3
+- Configure VLAN 2001 and VLAN 2003
+- Configure a MAC VRF for these VLANs
+- Configure VLAN to VNI mapping on the VXLAN interface using vni 2001 and 2003
+- Configure SVI with the anycast IP address 172.16.115.1/24 in vrf1 for VLAN 2001
+- Configure SVI with the anycast IP address 172.16.116.1/24 in vrf1 for VLAN 2003
 
 ### Turn Leaf2 into Host11
 
@@ -106,37 +114,37 @@ Configure Leaf2 to be a host in vlan 112 connected to Leaf1
 
 On Leaf2
 - Configure interface Ethernet1 as a routed port
-- Configure it with IP address 172.16.112.11
+- Configure it with IP address 172.16.112.11/24
 - Add a static route to vlan 2001 - subnet 172.16.115.0/24
 - Add a static route to vlan 2003 - subnet 172.16.116.0/24
 
 On Leaf1
-- Configure interface Ethernet1 as an access port in vlan 112
+- Configure interface Ethernet1 as an access port in VLAN 112
 - Unshut interface Ethernet1
 - Check connectivity from Leaf2 to its default gateway - 172.16.112.1
 
 ### Turn Leaf4 into Host22
 
-Configure Leaf4 to be a host in vlan 112 connected to Leaf3
+Configure Leaf4 to be a host in VLAN 112 connected to Leaf3
 
 On Leaf4
 - Configure interface Ethernet1 as a routed port
-- Configure it with IP address 172.16.112.22
+- Configure it with IP address 172.16.112.22/24
 - Add a static route to vlan 2001 - subnet 172.16.115.0/24
 - Add a static route to vlan 2003 - subnet 172.16.116.0/24
 
 On Leaf3
-- Configure interface Ethernet1 as an access port in vlan 112
+- Configure interface Ethernet1 as an access port in VLAN 112
 - Check connectivity from Leaf4 to its default gateway - 172.16.112.1
 
 ### Configure a Static Route on Host1 and Host2
 
 On Host1 and Host2
-- Configure a static route to vlan 112 -  - subnet 172.16.112.0/24
+- Configure a static route to VLAN 112 - subnet 172.16.112.0/24
 
 ### Test Reachability between Hosts
 
-From host1 ping
+From Host1 ping
 - Host2
 - Host11
 - Host22
