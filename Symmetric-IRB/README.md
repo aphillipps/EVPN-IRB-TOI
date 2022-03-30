@@ -102,13 +102,14 @@ Configure Leaf2 to be a host in vlan 112 connected to Leaf1
 
 On Leaf2
 - Configure interface Ethernet1 as a routed port
-- Configure it with IP address 172.16.112.11
+- Configure it with IP address 172.16.112.11/24
 - Add a static route to vlan 2001 - subnet 172.16.115.0/24
 - Add a static route to vlan 2003 - subnet 172.16.116.0/24
 
 On Leaf1
 - Configure interface Ethernet1 as an access port in vlan 112
 - Unshut interface Ethernet1
+- Check connectivity from Leaf2 to its default gateway - 172.16.112.1
 
 ### Turn Leaf4 into Host22
 
@@ -116,12 +117,13 @@ Configure Leaf4 to be a host in vlan 112 connected to Leaf3
 
 On Leaf4
 - Configure interface Ethernet1 as a routed port
-- Configure it with IP address 172.16.112.22
+- Configure it with IP address 172.16.112.22/24
 - Add a static route to vlan 2001 - subnet 172.16.115.0/24
 - Add a static route to vlan 2003 - subnet 172.16.116.0/24
 
 On Leaf3
 - Configure interface Ethernet1 as an access port in vlan 112
+- Check connectivity from Leaf4 to its default gateway - 172.16.112.1
 
 ### Configure a Static Route on Host1 and Host2
 

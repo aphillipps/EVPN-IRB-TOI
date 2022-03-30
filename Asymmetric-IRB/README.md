@@ -113,6 +113,7 @@ On Leaf2
 On Leaf1
 - Configure interface Ethernet1 as an access port in vlan 112
 - Unshut interface Ethernet1
+- Check connectivity from Leaf2 to its default gateway - 172.16.112.1
 
 ### Turn Leaf4 into Host22
 
@@ -126,6 +127,7 @@ On Leaf4
 
 On Leaf3
 - Configure interface Ethernet1 as an access port in vlan 112
+- Check connectivity from Leaf4 to its default gateway - 172.16.112.1
 
 ### Configure a Static Route on Host1 and Host2
 
