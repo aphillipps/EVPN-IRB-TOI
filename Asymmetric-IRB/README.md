@@ -30,7 +30,7 @@
 ## Lab Preparation
 ### Launch ATD LAB 6
 
-[Go to the Lab Access link for this step](Lab&#32;Access)
+[Go to the Lab Access link for this step](../Lab&#32;Access)
 ### Remove VRF vrf1 on Leaf1
 
 This lab has been initially set up for L3 EVPN.
