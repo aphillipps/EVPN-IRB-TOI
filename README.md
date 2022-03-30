@@ -19,5 +19,5 @@ These labs have been built for the setup used in Arista Test Drive composed of t
 These labs focus on EVPN IRB configurations and concepts.
 
 There are the following labs:
-- [Asymmetric IRB](2-Asymmetric#32;IRB)
-- [Symmetric IRB](1-Symmetric#32;IRB)
+- [Asymmetric IRB](Asymmetric-IRB)
+- [Symmetric IRB](Symmetric-IRB)
