@@ -70,7 +70,7 @@ From now on you can either:
 ![SSH to Devices (l3evpn)](step6.jpg)
 ### Remove VRF Mapping
 
-This lab has been initially been set up for L3 EVPN.
+This lab has been initially set up for L3 EVPN.
 Some changes need to be made in the configuration before starting the lab.
 
 On Leaf1
