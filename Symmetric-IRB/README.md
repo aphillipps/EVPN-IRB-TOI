@@ -29,7 +29,7 @@
 ## Lab Preparation
 ### Launch ATD LAB 6
 
-[Go to the Lab Access link for this step.](Lab%20Access)
+[Go to the Lab Access link for this step](Lab&#32;Access)
 ### Configure EVPN VXLAN on Leaf3
 
 On Leaf3:
