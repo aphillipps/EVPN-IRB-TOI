@@ -8,7 +8,7 @@
 
 ## Summary
 - Configure EVPN VXLAN on Leaf3
-- Establish Connectivity Between Host1, Host2, Host11 and Host22 in VRF vrf1
+- Establish Connectivity Between Host1, Host2, Host11 and Host22
 - Identify VNIs used for encapsulation
 - Identify Route Types used in a asymmetric EVPN IRB setup
 
@@ -68,7 +68,7 @@ From now on you can either:
 - Access the device via the GUI by hovering over the diagram and clicking on the devices
 
 ![SSH to Devices (l3evpn)](step6.jpg)
-### Remove VRF Mapping
+### Remove VRF vrf1 on Leaf1
 
 This lab has been initially set up for L3 EVPN.
 Some changes need to be made in the configuration before starting the lab.
@@ -76,6 +76,8 @@ Some changes need to be made in the configuration before starting the lab.
 On Leaf1
 - Remove the VRF vrf1 to VNI mapping on the VXLAN interface
 - Remove the VRF vrf1 in the bgp configuration
+- Remove VRF vrf1 on interface VLAN 2001
+- Reconfigure the ip address virtual on interface VLAN 2001 - 172.16.115.1/24
 
 ### Configure EVPN VXLAN on Leaf3
 
@@ -87,7 +89,6 @@ On Leaf3:
 - Check BGP peers
 - Configure BGP peering to Spine Switches for the Overlay
 - Check EVPN BGP peers
-- Configure a VRF instance named vrf1 and enable routing for it
 
 (*) Hint: Look at the Spine Switches configuration and use LLDP
 ## Asymmetric IRB Lab
@@ -97,7 +98,7 @@ On Leaf1 and Leaf3
 - Configure VLAN 112 
 - Configure a MAC VRF for this vlan
 - Configure VLAN to VNI mapping on the VXLAN interface using vni 1112 for vlan 112
-- Configure SVI with the anycast IP address 172.16.112.1/24 in vrf1
+- Configure SVI with the anycast IP address - 172.16.112.1/24
 
 ### Configure VLANs 2001 and 2003
 
@@ -105,8 +106,8 @@ On Leaf1 and Leaf3
 - Configure VLAN 2001 and VLAN 2003
 - Configure a MAC VRF for these VLANs
 - Configure VLAN to VNI mapping on the VXLAN interface using vni 2001 and 2003
-- Configure SVI with the anycast IP address 172.16.115.1/24 in vrf1 for VLAN 2001
-- Configure SVI with the anycast IP address 172.16.116.1/24 in vrf1 for VLAN 2003
+- Configure SVI with the anycast IP address 172.16.115.1/24 for VLAN 2001
+- Configure SVI with the anycast IP address 172.16.116.1/24 for VLAN 2003
 
 On Leaf3:
 - Configure virtual-router mac-address 00:1c:73:aa:bb:cc
@@ -162,8 +163,6 @@ Use the following commands on the Leaf Switches and explore the outputs
 - show bgp evpn vni xx
 - show bgp evpn route-type imet
 - show bgp evpn route-type mac-ip
-- show bgp evpn route-type ip-prefix ipv4
-- show bgp evpn route-type ip-prefix x.x.x.x/y
 
 ### Identify VNIs used for Encapsulation
 
@@ -173,6 +172,5 @@ Use the following commands on the Leaf Switches and explore the outputs
 
 Note the following important points:
 - When generating inter-vlan traffic, VNI numbers change according to the direction of the flow, thus the word asymmetric
-- Asymmetric does not necessarly mean without VRFS, but without mapping from VRF to VNI on the VXLAN interface
 - Every VLAN needs to be present on every Leaf Swicth even if there is no host present on the Leaf Switch
 - Note that you can also generate intra-vlan traffic inside VLAN 112, thus the term IRB: Integrated Routing and Switching
