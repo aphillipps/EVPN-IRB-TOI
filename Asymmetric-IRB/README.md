@@ -108,15 +108,18 @@ On Leaf1 and Leaf3
 - Configure SVI with the anycast IP address 172.16.115.1/24 in vrf1 for VLAN 2001
 - Configure SVI with the anycast IP address 172.16.116.1/24 in vrf1 for VLAN 2003
 
+On Leaf3:
+- Configure virtual-router mac-address 00:1c:73:aa:bb:cc
+
 ### Turn Leaf2 into Host11
 
-Configure Leaf2 to be a host in vlan 112 connected to Leaf1
+Configure Leaf2 to be a host in VLAN 112 connected to Leaf1
 
 On Leaf2
 - Configure interface Ethernet1 as a routed port
 - Configure it with IP address 172.16.112.11/24
-- Add a static route to vlan 2001 - subnet 172.16.115.0/24
-- Add a static route to vlan 2003 - subnet 172.16.116.0/24
+- Add a static route to VLAN 2001 - subnet 172.16.115.0/24
+- Add a static route to VLAN 2003 - subnet 172.16.116.0/24
 
 On Leaf1
 - Configure interface Ethernet1 as an access port in VLAN 112
