@@ -110,6 +110,8 @@ On Leaf1 and Leaf3
 
 On Leaf3:
 - Configure virtual-router mac-address 00:1c:73:aa:bb:cc
+- Configure Port-channel5 as an access port in VLAN 2003
+- Add interface Ethernet5 to Port-channel5
 
 ### Turn Leaf2 into Host11
 

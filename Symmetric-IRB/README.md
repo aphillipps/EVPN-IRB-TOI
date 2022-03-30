@@ -106,6 +106,8 @@ On Leaf3:
 - Configure VLAN to VNI mapping on the VXLAN interface using vni 2003
 - Configure SVI with the anycast IP address 172.16.116.1/24 in vrf1 for VLAN 2003
 - Configure virtual-router mac-address 00:1c:73:aa:bb:cc
+- Configure Port-channel5 as an access port in VLAN 2003
+- Add interface Ethernet5 to Port-channel5
 ### Configure vrf1 Mapping
 
 On Leaf3:
